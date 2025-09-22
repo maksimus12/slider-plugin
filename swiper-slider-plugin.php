@@ -3,7 +3,7 @@
  * Plugin Name: Swiper Sliders
  * Plugin URI: https://urbanevent.md/
  * Description: Слайдеры на базе Swiper.js для WordPress
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Maxim Diacenko
  * Author URI: https://urbanevent.md/
  * Text Domain: urban-sliders
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Определяем константы плагина
-define( 'URBAN_SLIDERS_VERSION', '1.0.0' );
+define( 'URBAN_SLIDERS_VERSION', '1.0.1' );
 define( 'URBAN_SLIDERS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'URBAN_SLIDERS_URL', plugin_dir_url( __FILE__ ) );
 
@@ -51,6 +51,15 @@ function urban_sliders_enqueue_scripts() {
         true
     );
     
+    // Добавляем отдельный скрипт для бургер-меню
+    wp_register_script(
+        'urban-burger-menu',
+        URBAN_SLIDERS_URL . 'assets/js/burger-menu.js',
+        [],
+        URBAN_SLIDERS_VERSION,
+        true
+    );
+    
     // Стили плагина
     wp_enqueue_style(
         'urban-sliders-css',
@@ -58,6 +67,7 @@ function urban_sliders_enqueue_scripts() {
         [ 'swiper-css' ],
         URBAN_SLIDERS_VERSION
     );
+    
 }
 add_action( 'wp_enqueue_scripts', 'urban_sliders_enqueue_scripts' );
 
@@ -81,8 +91,14 @@ function urban_sliders_activate() {
     if (!file_exists(URBAN_SLIDERS_PATH . 'assets/css/style.css')) {
         file_put_contents(URBAN_SLIDERS_PATH . 'assets/css/style.css', '/* Urban Sliders CSS */');
     }
+    if (!file_exists(URBAN_SLIDERS_PATH . 'assets/css/style-fixes.css')) {
+        file_put_contents(URBAN_SLIDERS_PATH . 'assets/css/style-fixes.css', '/* Urban Sliders CSS Fixes */');
+    }
     if (!file_exists(URBAN_SLIDERS_PATH . 'assets/js/slider-init.js')) {
         file_put_contents(URBAN_SLIDERS_PATH . 'assets/js/slider-init.js', '// Urban Sliders JS');
+    }
+    if (!file_exists(URBAN_SLIDERS_PATH . 'assets/js/burger-menu.js')) {
+        file_put_contents(URBAN_SLIDERS_PATH . 'assets/js/burger-menu.js', '// Urban Burger Menu JS');
     }
 }
 register_activation_hook( __FILE__, 'urban_sliders_activate' );

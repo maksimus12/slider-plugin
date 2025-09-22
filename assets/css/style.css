@@ -1,9 +1,12 @@
 /* Urban Sliders CSS */
 
 /* --------- Team Slider Styles --------- */
+
+
+
 .teamSwiper {
-    width: 280px;
-    height: 450px;
+    width: 235px;
+    height: 385px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -266,10 +269,49 @@
 }
 
 /* --------- Burger Menu Styles --------- */
+
+/* Fixed Burger Menu Styles */
+
+.mobile-menu-container:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -45%;
+        width: 500px;
+        height: 500px;
+        border-radius: 100%;
+        background: radial-gradient(circle, #C7FF2E 0%, rgba(199, 255, 46, 0) 40%);
+        filter: blur(60px);
+        z-index: 1;
+    }
+
+.mobile-menu-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Ensure menu is only shown when active class is present */
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+
+
 .burger-button {
     display: none;
-    width: 30px;
-    height: 24px;
+    width: 25px;
+    height: 29px;
     position: relative;
     cursor: pointer;
     z-index: 15;
@@ -280,7 +322,7 @@
     position: absolute;
     height: 3px;
     width: 100%;
-    background: #C7FF2E;
+    background: #fff;
     border-radius: 3px;
     opacity: 1;
     left: 0;
@@ -322,7 +364,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: #0E0E0E;
     z-index: 999;
     opacity: 0;
     visibility: hidden;
@@ -337,10 +379,11 @@
 .mobile-menu-container {
     position: relative;
     width: 100%;
+    overflow: hidden;
     height: 100%;
-    background-color: #1D1F27;
+    background-color: #161615;
     color: white;
-    padding: 20px;
+    padding: 20px 40px;
     box-sizing: border-box;
     overflow-y: auto;
 }
@@ -352,12 +395,6 @@
     margin-bottom: 60px;
 }
 
-.mobile-menu-logo {
-    font-family: 'Onest', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: #C7FF2E;
-}
 
 .mobile-menu-close {
     cursor: pointer;
@@ -381,13 +418,13 @@
 }
 
 .mobile-menu-nav li {
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 .mobile-menu-nav a {
     font-family: 'Onest', sans-serif;
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 600;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
@@ -415,6 +452,8 @@
     width: 100%;
     height: 100vh;
 }
+
+
 
 /* Дополнительные исправления для мобильных устройств */
 @media (max-width: 767px) {
