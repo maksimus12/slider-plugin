@@ -46,4 +46,64 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Initialize Burger Menu Slider
+    if (document.querySelector('.burgerMenuSwiper')) {
+        const burgerMenuSwiper = new Swiper('.burgerMenuSwiper', {
+            direction: 'vertical',
+            slidesPerView: 1,
+            allowTouchMove: false, // Disable swiping
+        });
+        
+        // Burger Menu functionality
+        const burgerButton = document.querySelector('.burger-button');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const menuLinks = document.querySelectorAll('.mobile-menu-nav a');
+        
+        if (burgerButton && mobileMenuOverlay) {
+            // Open menu when burger is clicked
+            burgerButton.addEventListener('click', function() {
+                burgerButton.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = 'hidden'; // Prevent body scrolling when menu is open
+            });
+            
+            // Close menu when X is clicked
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', function() {
+                    burgerButton.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            // Close menu when clicking outside or on menu links
+            document.addEventListener('click', function(e) {
+                if (mobileMenuOverlay.classList.contains('active') &&
+                    !e.target.closest('.mobile-menu-container') &&
+                    !e.target.closest('.burger-button')) {
+                    burgerButton.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Handle menu links clicks
+            if (menuLinks.length > 0) {
+                menuLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        burgerButton.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                        // Allow the navigation to happen
+                        setTimeout(function() {
+                            window.location.href = link.getAttribute('href');
+                        }, 300);
+                    });
+                });
+            }
+        }
+    }
+    
 });
