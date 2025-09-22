@@ -477,6 +477,16 @@
     }
 }
 
+/*clients slider*/
+
+
+.clientsSwiper {
+      width: 240px;
+      height: 320px;
+    }
+.swiper-client-wrapper{
+    height:100%;
+}
 
 /* Media Queries for Burger Menu */
 @media (max-width: 1024px) {

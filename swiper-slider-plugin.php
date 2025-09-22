@@ -22,6 +22,7 @@ define( 'URBAN_SLIDERS_URL', plugin_dir_url( __FILE__ ) );
 require_once URBAN_SLIDERS_PATH . 'includes/team-slider.php';
 require_once URBAN_SLIDERS_PATH . 'includes/pricing-slider.php';
 require_once URBAN_SLIDERS_PATH . 'includes/burger-menu.php'; 
+require_once URBAN_SLIDERS_PATH . 'includes/clients.php'; 
 
 // Регистрация скриптов и стилей
 function urban_sliders_enqueue_scripts() {

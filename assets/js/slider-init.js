@@ -47,6 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    if (document.querySelector('.clientsSwiper')) {
+        const clientsSwiper = new Swiper('.clientsSwiper', {
+            effect: 'cards',
+            grabCursor: true,
+        });
+    }
   
     
 });
