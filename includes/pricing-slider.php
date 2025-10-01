@@ -101,46 +101,113 @@ add_shortcode( 'pricing_slider', function( $atts ) {
     $modalContent = [
         'media-promovare' => [
             'title' => 'MEDIA',
-            'plans' => [
-                [
-                    'name' => 'PROMOVARE INSTAGRAM',
-                    'price' => 'Planuri',
-                    'period' => '',
-                    'description' => '',
-                    'features' => [
-                        'TARIF MINI 7.900 LEI / LUNĂ',
-                        '3 REELS: СЪЁМКА + МОНТАЖ',
-                        '4 ФОТО-ПОСТА (С ТЕКСТОМ И ОФОРМЛЕНИЕМ)',
-                        '10 СТОРИС (КОПИРАЙТИНГ +ВИЗУАЛ)',
-                        'TARIF Standart 7.900 LEI / LUNĂ'
+            'is_special_structure' => true,
+            'platforms' => [
+                'instagram' => [
+                    'name' => 'Instagram',
+                    'plans' => [
+                        [
+                            'name' => 'MINI',
+                            'price' => '5900',
+                            'period' => 'per month',
+                            'description' => 'Pentru început de promovare pe Instagram',
+                            'features' => [
+                                '3 Reels (filmare + montaj)',
+                                '4 postări foto (cu text și design)',
+                                '10 Stories (copywriting + vizual)',
+                                'Strategia de conținut de bază'
+                            ]
+                        ],
+                        [
+                            'name' => 'STANDARD',
+                            'price' => '7900',
+                            'period' => 'per month',
+                            'description' => 'Perfect pentru brandurile care doresc să-și extindă acoperirea.',
+                            'features' => [
+                                '5 Reels (filmare + montaj)',
+                                '8 postări foto (cu text și design)',
+                                '15 Stories (copywriting + vizual)',
+                                'Strategia de conținut detaliată',
+                                'Raport săptămânal de performanță'
+                            ]
+                        ],
+                        [
+                            'name' => 'PREMIUM',
+                            'price' => '12900',
+                            'period' => 'per month',
+                            'description' => 'Soluție completă pentru brandurile care doresc creștere rapidă.',
+                            'features' => [
+                                '8 Reels (filmare + montaj profesional)',
+                                '12 postări foto (cu text și design premium)',
+                                '20 Stories (copywriting + vizual personalizat)',
+                                'Strategia de conținut avansată',
+                                'Management comunitate',
+                                'Analiza competitorilor',
+                                'Raport detaliat săptămânal'
+                            ]
+                        ]
                     ]
                 ],
-                [
-                    'name' => 'Standard',
-                    'price' => '7900',
-                    'period' => 'per month',
-                    'description' => 'Perfect pentru brandurile care doresc să-și extindă acoperirea.',
-                    'features' => [
-                        'Strategie SMM completă',
-                        '10 postări pe lună',
-                        '5 Reels pe lună',
-                        'Copywriting profesional',
-                        'Raport săptămânal'
+                'tiktok' => [
+                    'name' => 'TikTok',
+                    'plans' => [
+                        [
+                            'name' => 'MINI',
+                            'price' => '5900',
+                            'period' => 'per month',
+                            'description' => 'Pentru început de promovare pe TikTok',
+                            'features' => [
+                                '6 clipuri TikTok (filmare + montaj)',
+                                'Cercetare tendințe de bază',
+                                'Strategia de conținut simplă',
+                                'Hashtag-uri optimizate'
+                            ]
+                        ],
+                        [
+                            'name' => 'STANDARD',
+                            'price' => '7900',
+                            'period' => 'per month',
+                            'description' => 'Pentru creșterea rapidă pe TikTok',
+                            'features' => [
+                                '10 clipuri TikTok (filmare + montaj)',
+                                'Cercetare tendințe detaliată',
+                                'Strategia de conținut complexă',
+                                'Hashtag-uri optimizate',
+                                'Analiza competitorilor',
+                                'Raport săptămânal'
+                            ]
+                        ],
+                        [
+                            'name' => 'PREMIUM',
+                            'price' => '12900',
+                            'period' => 'per month',
+                            'description' => 'Pachet complet pentru viralitate pe TikTok',
+                            'features' => [
+                                '15 clipuri TikTok (filmare + montaj profesional)',
+                                'Cercetare tendințe avansată',
+                                'Strategia de conținut personalizată',
+                                'Hashtag-uri optimizate premium',
+                                'Analiza competitorilor detaliată',
+                                'Colaborări cu influenceri',
+                                'Raport detaliat săptămânal'
+                            ]
+                        ]
                     ]
                 ],
-                [
-                    'name' => 'Premium',
-                    'price' => '12900',
+                'exclusiv' => [
+                    'name' => 'EXCLUSIV',
+                    'price' => 'De la 15900',
                     'period' => 'per month',
-                    'description' => 'Soluție completă pentru brandurile care doresc creștere rapidă.',
+                    'description' => 'Soluție completă pentru toate platformele sociale',
                     'features' => [
-                        'Strategie SMM avansată',
-                        '15 postări pe lună',
-                        '8 Reels pe lună',
-                        'Copywriting premium',
-                        'Management comunitate',
-                        'Planificare conținut lunar',
-                        'Raport detaliat săptămânal'
+                        'Gestionarea completă a tuturor rețelelor sociale',
+                        'Strategie personalizată pentru fiecare platformă',
+                        'Conținut adaptat pentru fiecare rețea socială',
+                        'Filmare și montaj profesional',
+                        'Management comunitate activ',
+                        'Rapoarte personalizate săptămânale',
+                        'Colaborări cu influenceri',
+                        'Consultanță prioritară 24/7'
                     ]
                 ]
             ]
@@ -351,58 +418,236 @@ add_shortcode( 'pricing_slider', function( $atts ) {
                 </div>
             </div>
             <div class="pricing-modal-body">
-                <div class="pricing-accordion-container">
-                    <?php foreach($serviceData['plans'] as $index => $plan): 
-                        $isActive = ($index === 0) ? 'active' : '';
-                        $gradientClass = '';
-                        switch($plan['name']) {
-                            case 'Basic':
-                                $gradientClass = 'gradient-pink';
-                                break;
-                            case 'Standard':
-                                $gradientClass = 'gradient-blue';
-                                break;
-                            case 'Premium':
-                                $gradientClass = 'gradient-gold';
-                                break;
-                        }
-                    ?>
-                    <div class="pricing-accordion <?= $isActive ?> <?= $gradientClass ?>">
-                        <div class="pricing-accordion-header">
-                            <div class="pricing-accordion-title-container">
-                                <h3 class="pricing-accordion-title"><?= esc_html($plan['name']) ?></h3>
-                                <div class="pricing-accordion-price"><?= esc_html($plan['price']) ?><span>L</span> <span class="period"><?= esc_html($plan['period']) ?></span></div>
-                                <div class="pricing-accordion-description"><?= esc_html($plan['description']) ?></div>
+                <?php if(isset($serviceData['is_special_structure']) && $serviceData['is_special_structure']): ?>
+                    <!-- Special structure for Media modal -->
+                    <div class="pricing-accordion-container">
+                        <!-- Instagram accordion -->
+                        <div class="pricing-accordion gradient-pink">
+                            <div class="pricing-accordion-header">
+                                <div class="pricing-accordion-title-container">
+                                    <h3 class="pricing-accordion-title"><?= esc_html($serviceData['platforms']['instagram']['name']) ?></h3>
+                                    <div class="pricing-accordion-description">Promovare pe Instagram</div>
+                                </div>
+                                <div class="pricing-accordion-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M7 10l5 5 5-5z"/>
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="pricing-accordion-arrow">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                    <path d="M7 10l5 5 5-5z"/>
-                                </svg>
+                            <div class="pricing-accordion-content">
+                                <div class="nested-accordions">
+                                    <?php foreach($serviceData['platforms']['instagram']['plans'] as $index => $plan): 
+                                        $gradientClass = '';
+                                        switch($plan['name']) {
+                                            case 'MINI':
+                                                $gradientClass = 'nested-gradient-pink';
+                                                break;
+                                            case 'STANDARD':
+                                                $gradientClass = 'nested-gradient-blue';
+                                                break;
+                                            case 'PREMIUM':
+                                                $gradientClass = 'nested-gradient-gold';
+                                                break;
+                                        }
+                                    ?>
+                                    <div class="nested-accordion <?= $gradientClass ?>">
+                                        <div class="nested-accordion-header">
+                                            <div class="nested-accordion-title-container">
+                                                <h4 class="nested-accordion-title"><?= esc_html($plan['name']) ?></h4>
+                                                <div class="nested-accordion-price"><?= esc_html($plan['price']) ?><span>L</span> <span class="period"><?= esc_html($plan['period']) ?></span></div>
+                                                <div class="nested-accordion-description"><?= esc_html($plan['description']) ?></div>
+                                            </div>
+                                            <div class="nested-accordion-arrow">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                    <path d="M7 10l5 5 5-5z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="nested-accordion-content">
+                                            <ul class="pricing-accordion-features">
+                                                <?php foreach($plan['features'] as $feature): ?>
+                                                <li>
+                                                    <span class="feature-check">
+                                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="12" cy="12" r="9" fill="#C7FF2E" />
+                                                            <path d="M9 12.75L11.25 15L15 9.75"
+                                                                fill="none"
+                                                                stroke="#000"
+                                                                stroke-width="1.6"
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                    <?= esc_html($feature) ?>
+                                                </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         </div>
-                        <div class="pricing-accordion-content">
-                            <ul class="pricing-accordion-features">
-                                <?php foreach($plan['features'] as $feature): ?>
-                                <li>
-                                    <span class="feature-check">
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="12" cy="12" r="9" fill="#C7FF2E" />
-                                            <path d="M9 12.75L11.25 15L15 9.75"
-                                                fill="none"
-                                                stroke="#000"
-                                                stroke-width="1.6"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                    <?= esc_html($feature) ?>
-                                </li>
-                                <?php endforeach; ?>
-                            </ul>
+                        
+                        <!-- TikTok accordion -->
+                        <div class="pricing-accordion gradient-blue">
+                            <div class="pricing-accordion-header">
+                                <div class="pricing-accordion-title-container">
+                                    <h3 class="pricing-accordion-title"><?= esc_html($serviceData['platforms']['tiktok']['name']) ?></h3>
+                                    <div class="pricing-accordion-description">Promovare pe TikTok</div>
+                                </div>
+                                <div class="pricing-accordion-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M7 10l5 5 5-5z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="pricing-accordion-content">
+                                <div class="nested-accordions">
+                                    <?php foreach($serviceData['platforms']['tiktok']['plans'] as $index => $plan): 
+                                        $gradientClass = '';
+                                        switch($plan['name']) {
+                                            case 'MINI':
+                                                $gradientClass = 'nested-gradient-pink';
+                                                break;
+                                            case 'STANDARD':
+                                                $gradientClass = 'nested-gradient-blue';
+                                                break;
+                                            case 'PREMIUM':
+                                                $gradientClass = 'nested-gradient-gold';
+                                                break;
+                                        }
+                                    ?>
+                                    <div class="nested-accordion <?= $gradientClass ?>">
+                                        <div class="nested-accordion-header">
+                                            <div class="nested-accordion-title-container">
+                                                <h4 class="nested-accordion-title"><?= esc_html($plan['name']) ?></h4>
+                                                <div class="nested-accordion-price"><?= esc_html($plan['price']) ?><span>L</span> <span class="period"><?= esc_html($plan['period']) ?></span></div>
+                                                <div class="nested-accordion-description"><?= esc_html($plan['description']) ?></div>
+                                            </div>
+                                            <div class="nested-accordion-arrow">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                    <path d="M7 10l5 5 5-5z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="nested-accordion-content">
+                                            <ul class="pricing-accordion-features">
+                                                <?php foreach($plan['features'] as $feature): ?>
+                                                <li>
+                                                    <span class="feature-check">
+                                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="12" cy="12" r="9" fill="#C7FF2E" />
+                                                            <path d="M9 12.75L11.25 15L15 9.75"
+                                                                fill="none"
+                                                                stroke="#000"
+                                                                stroke-width="1.6"
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                    <?= esc_html($feature) ?>
+                                                </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Exclusiv accordion -->
+                        <div class="pricing-accordion gradient-gold">
+                            <div class="pricing-accordion-header">
+                                <div class="pricing-accordion-title-container">
+                                    <h3 class="pricing-accordion-title"><?= esc_html($serviceData['platforms']['exclusiv']['name']) ?></h3>
+                                    <div class="pricing-accordion-price"><?= esc_html($serviceData['platforms']['exclusiv']['price']) ?> <span class="period"><?= esc_html($serviceData['platforms']['exclusiv']['period']) ?></span></div>
+                                    <div class="pricing-accordion-description"><?= esc_html($serviceData['platforms']['exclusiv']['description']) ?></div>
+                                </div>
+                                <div class="pricing-accordion-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M7 10l5 5 5-5z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="pricing-accordion-content">
+                                <ul class="pricing-accordion-features">
+                                    <?php foreach($serviceData['platforms']['exclusiv']['features'] as $feature): ?>
+                                    <li>
+                                        <span class="feature-check">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12" r="9" fill="#C7FF2E" />
+                                                <path d="M9 12.75L11.25 15L15 9.75"
+                                                    fill="none"
+                                                    stroke="#000"
+                                                    stroke-width="1.6"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <?= esc_html($feature) ?>
+                                    </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <?php endforeach; ?>
-                </div>
+                <?php else: ?>
+                    <!-- Regular structure for other modals -->
+                    <div class="pricing-accordion-container">
+                        <?php foreach($serviceData['plans'] as $index => $plan): 
+                            $isActive = ($index === 0) ? 'active' : '';
+                            $gradientClass = '';
+                            switch($plan['name']) {
+                                case 'Basic':
+                                    $gradientClass = 'gradient-pink';
+                                    break;
+                                case 'Standard':
+                                    $gradientClass = 'gradient-blue';
+                                    break;
+                                case 'Premium':
+                                    $gradientClass = 'gradient-gold';
+                                    break;
+                            }
+                        ?>
+                        <div class="pricing-accordion <?= $isActive ?> <?= $gradientClass ?>">
+                            <div class="pricing-accordion-header">
+                                <div class="pricing-accordion-title-container">
+                                    <h3 class="pricing-accordion-title"><?= esc_html($plan['name']) ?></h3>
+                                    <div class="pricing-accordion-price"><?= esc_html($plan['price']) ?><span>L</span> <span class="period"><?= esc_html($plan['period']) ?></span></div>
+                                    <div class="pricing-accordion-description"><?= esc_html($plan['description']) ?></div>
+                                </div>
+                                <div class="pricing-accordion-arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M7 10l5 5 5-5z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="pricing-accordion-content">
+                                <ul class="pricing-accordion-features">
+                                    <?php foreach($plan['features'] as $feature): ?>
+                                    <li>
+                                        <span class="feature-check">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12" r="9" fill="#C7FF2E" />
+                                                <path d="M9 12.75L11.25 15L15 9.75"
+                                                    fill="none"
+                                                    stroke="#000"
+                                                    stroke-width="1.6"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <?= esc_html($feature) ?>
+                                    </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
                 <div class="pricing-modal-footer">
                     <a href="#contact" class="pricing-button normal modal-contact-btn">CONTACTEAZĂ-NE</a>
                 </div>

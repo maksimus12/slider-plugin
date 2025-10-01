@@ -836,3 +836,95 @@
 body.modal-open {
     overflow: hidden;
 }
+
+/* Nested Accordions for Media modal */
+.nested-accordions {
+    padding: 15px;
+}
+
+.nested-accordion {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.nested-accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nested-accordion-title-container {
+    flex: 1;
+}
+
+.nested-accordion-title {
+    font-family: 'Onest', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+.nested-accordion-price {
+    font-family: 'Onest', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.nested-accordion-description {
+    font-family: 'Onest', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+.nested-accordion-arrow {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-left: 15px;
+    transition: transform 0.3s;
+}
+
+.nested-accordion-arrow svg {
+    fill: white;
+    transition: transform 0.3s;
+}
+
+.nested-accordion.active .nested-accordion-arrow svg {
+    transform: rotate(180deg);
+}
+
+.nested-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.nested-accordion.active .nested-accordion-content {
+    max-height: 400px;
+    transition: max-height 0.5s ease-in;
+}
+
+/* Gradient backgrounds for nested accordions */
+.nested-gradient-pink {
+    background: linear-gradient(135deg, #FF4D9E 0%, #A544FF 100%);
+}
+
+.nested-gradient-blue {
+    background: linear-gradient(135deg, #37C9FF 0%, #3768FF 100%);
+}
+
+.nested-gradient-gold {
+    background: linear-gradient(135deg, #FFCB37 0%, #FF8A37 100%);
+}

@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const openModalButtons = document.querySelectorAll('.open-pricing-modal');
     const closeModalButtons = document.querySelectorAll('.pricing-modal-close');
     const accordions = document.querySelectorAll('.pricing-accordion-header');
+    const nestedAccordions = document.querySelectorAll('.nested-accordion-header');
     const contactButtons = document.querySelectorAll('.modal-contact-btn');
     
     // Open modal when clicking on "DETALII" button
@@ -116,6 +117,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Toggle active state for clicked accordion
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+    }
+    
+    // Toggle nested accordion content
+    if (nestedAccordions.length > 0) {
+        nestedAccordions.forEach(header => {
+            header.addEventListener('click', function() {
+                const parent = this.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                // Close all other nested accordions in the same group
+                const siblings = parent.parentElement.querySelectorAll('.nested-accordion');
+                siblings.forEach(sibling => {
+                    sibling.classList.remove('active');
+                });
+                
+                // Toggle active state for clicked nested accordion
                 if (!isActive) {
                     parent.classList.add('active');
                 }
