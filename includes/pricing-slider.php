@@ -14,7 +14,7 @@ add_shortcode( 'pricing_slider', function( $atts ) {
     // Массив тарифных планов в соответствии с дизайном с картинки
     $plans = [
         [
-            'name' => 'MEDIA PROMOVARE',
+            'name' => 'MEDIA',
             'description' => 'Perfect pentru brandurile care doresc să-și extindă acoperirea',
             'price' => '7900',
             'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -23,6 +23,7 @@ add_shortcode( 'pricing_slider', function( $atts ) {
                 ',
             'button_text' => 'DETALII',
             'button_class' => 'normal',
+            'service_id' => 'media-promovare',
             'features' => [
                 ['text' => 'Strategie SMM completă și plan de conținut pentru o lună.', 'available' => true],
                 
@@ -43,6 +44,7 @@ add_shortcode( 'pricing_slider', function( $atts ) {
 ',
             'button_text' => 'DETALII',
             'button_class' => 'normal',
+            'service_id' => 'target',
             'features' => [
                 ['text' => 'Configurarea și lansarea campaniilor publicitare ', 'available' => true],
                 
@@ -63,6 +65,7 @@ add_shortcode( 'pricing_slider', function( $atts ) {
                 ',
             'button_text' => 'DETALII',
             'button_class' => 'normal',
+            'service_id' => 'design',
             'features' => [
                 ['text' => 'Stil vizual uniform pentru fluxul de știri și șabloanele postărilor', 'available' => true],
                 
@@ -84,6 +87,7 @@ add_shortcode( 'pricing_slider', function( $atts ) {
                 ',
             'button_text' => 'DETALII',
             'button_class' => 'normal',
+            'service_id' => 'branding',
             'features' => [
                 ['text' => 'Crearea logo-ului (mai multe variante la alegere)', 'available' => true],
                 ['text' => 'Versiuni color + alb-negru și fișiere finale ', 'available' => true],
@@ -91,6 +95,189 @@ add_shortcode( 'pricing_slider', function( $atts ) {
                 ['text' => 'Șabloane de postări și materiale de firmă (cărți de vizită etc.) pentru o imagine complexă.', 'available' => true],
             ]
         ],
+    ];
+
+    // Содержимое модальных окон для каждой услуги
+    $modalContent = [
+        'media-promovare' => [
+            'title' => 'MEDIA',
+            'plans' => [
+                [
+                    'name' => 'PROMOVARE INSTAGRAM',
+                    'price' => 'Planuri',
+                    'period' => '',
+                    'description' => '',
+                    'features' => [
+                        'TARIF MINI 7.900 LEI / LUNĂ',
+                        '3 REELS: СЪЁМКА + МОНТАЖ',
+                        '4 ФОТО-ПОСТА (С ТЕКСТОМ И ОФОРМЛЕНИЕМ)',
+                        '10 СТОРИС (КОПИРАЙТИНГ +ВИЗУАЛ)',
+                        'TARIF Standart 7.900 LEI / LUNĂ'
+                    ]
+                ],
+                [
+                    'name' => 'Standard',
+                    'price' => '7900',
+                    'period' => 'per month',
+                    'description' => 'Perfect pentru brandurile care doresc să-și extindă acoperirea.',
+                    'features' => [
+                        'Strategie SMM completă',
+                        '10 postări pe lună',
+                        '5 Reels pe lună',
+                        'Copywriting profesional',
+                        'Raport săptămânal'
+                    ]
+                ],
+                [
+                    'name' => 'Premium',
+                    'price' => '12900',
+                    'period' => 'per month',
+                    'description' => 'Soluție completă pentru brandurile care doresc creștere rapidă.',
+                    'features' => [
+                        'Strategie SMM avansată',
+                        '15 postări pe lună',
+                        '8 Reels pe lună',
+                        'Copywriting premium',
+                        'Management comunitate',
+                        'Planificare conținut lunar',
+                        'Raport detaliat săptămânal'
+                    ]
+                ]
+            ]
+        ],
+        'target' => [
+            'title' => 'TARGET',
+            'plans' => [
+                [
+                    'name' => 'Basic',
+                    'price' => '2900',
+                    'period' => 'per month',
+                    'description' => 'Start pentru campaniile de targetare.',
+                    'features' => [
+                        'Configurare campanii de bază',
+                        'Targeting pe 2 segmente',
+                        'Buget recomandat 300€',
+                        'Raport lunar'
+                    ]
+                ],
+                [
+                    'name' => 'Standard',
+                    'price' => '3900',
+                    'period' => 'per month',
+                    'description' => 'Pentru afacerile care au nevoie de clienți potențiali stabili.',
+                    'features' => [
+                        'Configurare campanii complexe',
+                        'Targeting pe 5 segmente',
+                        'Teste A/B',
+                        'Buget recomandat 500€',
+                        'Raport săptămânal'
+                    ]
+                ],
+                [
+                    'name' => 'Premium',
+                    'price' => '6900',
+                    'period' => 'per month',
+                    'description' => 'Pentru afaceri cu nevoi complexe de targetare.',
+                    'features' => [
+                        'Configurare campanii avansate',
+                        'Targeting pe 10+ segmente',
+                        'Teste A/B multiple',
+                        'Optimizare continuă',
+                        'Buget recomandat 1000€+',
+                        'Raport detaliat săptămânal'
+                    ]
+                ]
+            ]
+        ],
+        'design' => [
+            'title' => 'DESIGN',
+            'plans' => [
+                [
+                    'name' => 'Basic',
+                    'price' => '2900',
+                    'period' => 'per month',
+                    'description' => 'Pentru cei care au nevoie de un design simplu și eficient.',
+                    'features' => [
+                        '5 șabloane de postări',
+                        'Selecție paletă de culori',
+                        'Selecție fonturi'
+                    ]
+                ],
+                [
+                    'name' => 'Standard',
+                    'price' => '3900',
+                    'period' => 'per month',
+                    'description' => 'Pentru cei care doresc un aspect vizual profesional uniform.',
+                    'features' => [
+                        '10 șabloane de postări',
+                        'Paletă de culori personalizată',
+                        'Selecție fonturi premium',
+                        'Design pentru Stories',
+                        'Element grafice personalizate'
+                    ]
+                ],
+                [
+                    'name' => 'Premium',
+                    'price' => '5900',
+                    'period' => 'per month',
+                    'description' => 'Design complex pentru branduri care vor să iasă în evidență.',
+                    'features' => [
+                        '15+ șabloane de postări',
+                        'Design system complet',
+                        'Elemente grafice animate',
+                        'Design pentru toate platformele',
+                        'Revizii nelimitate',
+                        'Fisiere sursă incluse'
+                    ]
+                ]
+            ]
+        ],
+        'branding' => [
+            'title' => 'BRANDING',
+            'plans' => [
+                [
+                    'name' => 'Basic',
+                    'price' => '2900',
+                    'period' => 'one-time',
+                    'description' => 'Pentru start-up-uri și afaceri mici.',
+                    'features' => [
+                        'Logo (2 concepte)',
+                        'Paletă de culori',
+                        'Selecție fonturi',
+                        'Mini-ghid de brand'
+                    ]
+                ],
+                [
+                    'name' => 'Standard',
+                    'price' => '3900',
+                    'period' => 'one-time',
+                    'description' => 'Pentru proiectele care creează sau actualizează un brand.',
+                    'features' => [
+                        'Logo (3 concepte)',
+                        'Paletă de culori extinsă',
+                        'Selecție fonturi premium',
+                        'Brand book complet',
+                        'Elemente de identitate vizuală',
+                        'Cărți de vizită și papetărie'
+                    ]
+                ],
+                [
+                    'name' => 'Premium',
+                    'price' => '7900',
+                    'period' => 'one-time',
+                    'description' => 'Branding complet pentru afaceri care vor să devină lideri în industrie.',
+                    'features' => [
+                        'Logo (5+ concepte)',
+                        'Sistem complet de identitate vizuală',
+                        'Brand book extins',
+                        'Strategie de brand',
+                        'Materiale de marketing',
+                        'Design pentru social media',
+                        'Consultanță continuă 3 luni'
+                    ]
+                ]
+            ]
+        ]
     ];
 
     ob_start(); ?>
@@ -111,7 +298,7 @@ add_shortcode( 'pricing_slider', function( $atts ) {
                         </div>
                         
                         <div class="pricing-footer">
-                            <a href="#contact" class="pricing-button <?= $plan['button_class'] ?>"><?= esc_html($plan['button_text']) ?></a>
+                            <a href="#" class="pricing-button <?= $plan['button_class'] ?> open-pricing-modal" data-service="<?= $plan['service_id'] ?>"><?= esc_html($plan['button_text']) ?></a>
                         </div>
                     
                         <div class="pricing-features">
@@ -149,8 +336,81 @@ add_shortcode( 'pricing_slider', function( $atts ) {
             </div>
             <?php endforeach; ?>
         </div>
-        
     </div>
+
+    <!-- Modal Overlay -->
+    <div class="pricing-modal-overlay">
+        <?php foreach($modalContent as $serviceId => $serviceData): ?>
+        <div class="pricing-modal" id="modal-<?= $serviceId ?>">
+            <div class="pricing-modal-header">
+                <div class="pricing-modal-title"><?= esc_html($serviceData['title']) ?></div>
+                <div class="pricing-modal-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="pricing-modal-body">
+                <div class="pricing-accordion-container">
+                    <?php foreach($serviceData['plans'] as $index => $plan): 
+                        $isActive = ($index === 0) ? 'active' : '';
+                        $gradientClass = '';
+                        switch($plan['name']) {
+                            case 'Basic':
+                                $gradientClass = 'gradient-pink';
+                                break;
+                            case 'Standard':
+                                $gradientClass = 'gradient-blue';
+                                break;
+                            case 'Premium':
+                                $gradientClass = 'gradient-gold';
+                                break;
+                        }
+                    ?>
+                    <div class="pricing-accordion <?= $isActive ?> <?= $gradientClass ?>">
+                        <div class="pricing-accordion-header">
+                            <div class="pricing-accordion-title-container">
+                                <h3 class="pricing-accordion-title"><?= esc_html($plan['name']) ?></h3>
+                                <div class="pricing-accordion-price"><?= esc_html($plan['price']) ?><span>L</span> <span class="period"><?= esc_html($plan['period']) ?></span></div>
+                                <div class="pricing-accordion-description"><?= esc_html($plan['description']) ?></div>
+                            </div>
+                            <div class="pricing-accordion-arrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path d="M7 10l5 5 5-5z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="pricing-accordion-content">
+                            <ul class="pricing-accordion-features">
+                                <?php foreach($plan['features'] as $feature): ?>
+                                <li>
+                                    <span class="feature-check">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="12" cy="12" r="9" fill="#C7FF2E" />
+                                            <path d="M9 12.75L11.25 15L15 9.75"
+                                                fill="none"
+                                                stroke="#000"
+                                                stroke-width="1.6"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <?= esc_html($feature) ?>
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="pricing-modal-footer">
+                    <a href="#contact" class="pricing-button normal modal-contact-btn">CONTACTEAZĂ-NE</a>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    
     <?php
     return ob_get_clean();
 } );
